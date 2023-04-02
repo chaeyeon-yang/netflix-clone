@@ -26,6 +26,10 @@ export default function Banner() {
         setMovie(movieDetail);
     };
 
+    const truncate = (str, n) => {
+        return str?.length > n ? str.substr(0, n - 1) + "..." : str;
+    };
+
     return (
         <header
             className="banner"
@@ -45,7 +49,9 @@ export default function Banner() {
                         <div className="space"></div> More Information
                     </button>
                 </div>
-                <h1 className="banner__description">{movie?.overview}</h1>
+                <h1 className="banner__description">
+                    {truncate(movie?.overview, 100)}
+                </h1>
             </div>
             <div className="banner--fadeBottom"></div>
         </header>
