@@ -1,6 +1,7 @@
 import axios from "../api/axios";
 import React, { useEffect, useState } from "react";
 import requests from "../api/requests";
+import "./Banner.css";
 
 export default function Banner() {
     const [movie, setMovie] = useState([]);
@@ -25,5 +26,28 @@ export default function Banner() {
         setMovie(movieDetail);
     };
 
-    return <div></div>;
+    return (
+        <header
+            className="banner"
+            style={{
+                backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
+                backgroundPosition: "top center",
+                backgroundSize: "cover",
+            }}
+        >
+            <div className="banner__contents">
+                <h1 className="banner__title">
+                    {movie?.title || movie?.name || movie?.original_name}
+                </h1>
+                <div className="banner__buttons">
+                    <button className="banner__button play">Play</button>
+                    <button className="banner__button info">
+                        <div className="space"></div> More Information
+                    </button>
+                </div>
+                <h1 className="banner__description">{movie?.overview}</h1>
+            </div>
+            <div className="banner--fadeBottom"></div>
+        </header>
+    );
 }
