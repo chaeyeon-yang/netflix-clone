@@ -14,7 +14,7 @@ export default function Row({ title, fetchUrl, id, isLargeRow }) {
         setMovies(request.data.results);
     };
     return (
-        <section>
+        <section className="row">
             <h2>{title}</h2>
             <div className="slider">
                 <div className="slider__arrow-left">
