@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import axios from "../../api/axios";
 import { useDebounce } from "../../hooks/useDebounce";
 import "./SearchPage.css";
 
 export default function SearchPage() {
     // console.log("useLocation()", useLocation());
+
+    const navigate = useNavigate();
 
     const useQuery = () => {
         return new URLSearchParams(useLocation().search);
@@ -50,7 +52,10 @@ export default function SearchPage() {
 
                         return (
                             <div className="movie" key={movie.id}>
-                                <div className="movie__column-poster">
+                                <div
+                                    className="movie__column-poster"
+                                    onClick={() => navigate(`/${movie.id}`)}
+                                >
                                     <img
                                         src={movieImageUrl}
                                         alt="movie"
