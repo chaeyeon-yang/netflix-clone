@@ -8,7 +8,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
-import { Navigation } from "swiper";
+import { Navigation, Pagination } from "swiper";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 export default function Row({ title, fetchUrl, id, isLargeRow }) {
     const [movies, setMovies] = useState([]);
@@ -32,7 +38,7 @@ export default function Row({ title, fetchUrl, id, isLargeRow }) {
         <section className="row">
             <h2>{title}</h2>
             <Swiper
-                modules={[Navigation]}
+                modules={[Navigation, Pagination]}
                 navigation
                 pagination={{ clickable: true }}
                 loop={true}
